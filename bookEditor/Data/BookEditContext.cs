@@ -18,6 +18,7 @@ namespace bookEditor.Data
             Database.SetInitializer(
                 new MigrateDatabaseToLatestVersion<BookEditContext, BookEditMigrateConfig>()
                 );
+            
         }
 
         public DbSet<Author> Authors { get; set; }

@@ -18,7 +18,7 @@ namespace bookEditor.Data
 
             if (context.Books.Count() == 0)
             {
-                var dummyBook = new Book[]
+                var dummyBooks = new Book[]
                 {
                     new Book
                     {
@@ -40,7 +40,6 @@ namespace bookEditor.Data
                                 LastName = "Benington",
                                 PatronymicName = "LP"
                             },
-
                         },
                     },
                     new Book
@@ -66,6 +65,9 @@ namespace bookEditor.Data
                         }
                     }
                 };
+
+                context.Books.AddRange(dummyBooks);
+                context.SaveChanges();
             }
         }
     }

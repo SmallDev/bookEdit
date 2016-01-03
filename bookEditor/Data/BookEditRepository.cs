@@ -14,7 +14,7 @@ namespace bookEditor.Data
         {
             if (ctx == null)
             {
-                throw new NullReferenceException(" BookEditContext was not initialized");
+                throw new ArgumentNullException(" BookEditContext was not initialized");
             }
 
             _ctx = ctx;

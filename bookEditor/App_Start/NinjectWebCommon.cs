@@ -11,6 +11,8 @@ namespace bookEditor.App_Start
     using Ninject;
     using Ninject.Web.Common;
     using Data;
+    using Services.Interfaces;
+    using Services;
     public static class NinjectWebCommon 
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
@@ -63,6 +65,7 @@ namespace bookEditor.App_Start
         {
             kernel.Bind<BookEditContext>().To<BookEditContext>().InRequestScope();
             kernel.Bind<IBookEditRepository>().To<BookEditRepository>().InRequestScope();
+            kernel.Bind<IBookService>().To<BookService>().InRequestScope();
         }        
     }
 }

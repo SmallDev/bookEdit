@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -25,7 +26,7 @@ namespace bookEditor.Models
         public string PublishYear { get; set; }
         
         public virtual BookPicture Picture { get; set; }
-
+        
         public virtual ICollection<Author> Authors { get; set; }
     }
 }
