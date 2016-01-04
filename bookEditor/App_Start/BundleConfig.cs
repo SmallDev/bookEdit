@@ -32,7 +32,8 @@ namespace bookEditor
                       "~/Scripts/app/controllers/bookListCtrl.js",
                       "~/Scripts/app/controllers/editBookCtrl.js",
                       "~/Scripts/app/controllers/mainCtrl.js",
-                      "~/Scripts/app/services/bookService.js"));
+                      "~/Scripts/app/services/bookService.js",
+                      "~/Scripts/app/services/authorService.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap/bootstrap.js"));

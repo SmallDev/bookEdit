@@ -2,7 +2,13 @@
     $scope.data = bookService;
 
     $scope.deleteBook = function (bookId) {
-        bookService.deleteBook(bookId);
+        bookService.deleteBook(bookId).then(
+            function() {
+                //success
+            },
+            function () {
+                //error
+            });
     };
 
     $scope.editBook = function (bookId) {

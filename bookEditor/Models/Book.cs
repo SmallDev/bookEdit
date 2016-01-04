@@ -10,7 +10,7 @@ namespace bookEditor.Models
     {
         public Book()
         {
-            Authors = new List<Author>();
+            Authors = new HashSet<Author>();
         }
 
         public int Id { get; set; }

@@ -22,7 +22,7 @@ namespace bookEditor.Data
         //Authors
         IQueryable<Author> GetAllAuthors();
 
-        void AddAuthor(Author newAuthor);
+        Author AddAuthor(Author newAuthor);
 
         void DeleteAuthor(int authorId);
 

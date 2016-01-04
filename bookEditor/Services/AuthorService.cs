@@ -8,37 +8,32 @@ using bookEditor.Data;
 
 namespace bookEditor.Services
 {
-    public class BookService : IBookService
+    public class AuthorService : IAuthorService
     {
         IBookEditRepository _bookEditRepository;
 
-        public BookService(IBookEditRepository bookEditRepository)
+        public AuthorService(IBookEditRepository bookEditRepository)
         {
-            if(bookEditRepository == null)
+            if (bookEditRepository == null)
             {
                 throw new ArgumentNullException("BookEditRepository was not initialized succesfully");
             }
             _bookEditRepository = bookEditRepository;
         }
 
-        public IEnumerable<Book> GetBooks()
+        public Author AddAuthor(Author newAuthor)
         {
-            return _bookEditRepository.GetAllBooks();
+            return _bookEditRepository.AddAuthor(newAuthor);
         }
 
-        public void UpdateBook(Book book)
+        public void DeleteAuthor(int id)
         {
-            _bookEditRepository.UpdateBook(book);
+            _bookEditRepository.DeleteAuthor(id);
         }
 
-        public void AddBook(Book book)
+        public IEnumerable<Author> GetAuthors()
         {
-            _bookEditRepository.AddBook(book);
-        }
-
-        public void DeleteBook(int id)
-        {
-            _bookEditRepository.DeleteBook(id);
+            return _bookEditRepository.GetAllAuthors();
         }
     }
 }

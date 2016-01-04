@@ -17,6 +17,8 @@
     };
 
     var _deleteBook = function (id) {
+        var deferred = $q.defer();
+
         var book = null;
         $.each(_books, function (i, item) {
             if (item.id == id) {
@@ -26,9 +28,21 @@
         })
 
         if (book) {
-            _books.splice(_books.indexOf(book), 1);
+            $http.delete("/api/books/" + book.id)
+                .then(function () {
+                    _books.splice(_books.indexOf(book), 1);
+                    deferred.resolve();
+                }, function () {
+                    deferred.reject();
+                })
         }
+        else {
+            deferred.reject();
+        }
+
+        return deferred.promise;
     };
+  
 
     var _getBook = function (bookId) {
         var deferred = $q.defer();

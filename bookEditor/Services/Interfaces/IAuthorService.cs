@@ -7,14 +7,12 @@ using System.Threading.Tasks;
 
 namespace bookEditor.Services.Interfaces
 {
-    public interface IBookService
+    public interface IAuthorService
     {
-        IEnumerable<Book> GetBooks();
+        Author AddAuthor(Author newAuthor);
 
-        void UpdateBook(Book book);
+        void DeleteAuthor(int id);
 
-        void AddBook(Book book);
-
-        void DeleteBook(int id);
+        IEnumerable<Author> GetAuthors(); 
     }
 }

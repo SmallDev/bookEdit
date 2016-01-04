@@ -25,7 +25,7 @@ namespace bookEditor.Controllers
 
         public IEnumerable<Book> GetBooks()
         {
-            return _bookService.GetBooks().ToArray();
+            return _bookService.GetBooks();
         }
 
         public HttpResponseMessage PutBook(Book book)
@@ -38,6 +38,13 @@ namespace bookEditor.Controllers
         public HttpResponseMessage PostBook(Book book)
         {
             _bookService.AddBook(book);
+
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
+
+        public HttpResponseMessage DeleteBook(int id)
+        {
+            _bookService.DeleteBook(id);
 
             return Request.CreateResponse(HttpStatusCode.OK);
         }

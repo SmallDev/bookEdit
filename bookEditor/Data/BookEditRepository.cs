@@ -20,10 +20,12 @@ namespace bookEditor.Data
             _ctx = ctx;
         }
 
-        public void AddAuthor(Author newAuthor)
+        public Author AddAuthor(Author newAuthor)
         {
             _ctx.Authors.Add(newAuthor);
             _ctx.SaveChanges();
+
+            return newAuthor;
         }
 
         public void AddBook(Book newBook)
