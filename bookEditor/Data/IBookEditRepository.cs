@@ -16,6 +16,8 @@ namespace bookEditor.Data
 
         void DeleteBook(int bookId);
 
+        void UpdateBook(Book book);
+
 
         //Authors
         IQueryable<Author> GetAllAuthors();

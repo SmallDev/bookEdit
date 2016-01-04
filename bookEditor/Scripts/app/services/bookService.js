@@ -26,7 +26,7 @@
         })
 
         if (book) {
-            books.splice(books.indexOf(book), 1);
+            _books.splice(_books.indexOf(book), 1);
         }
     };
 
@@ -45,7 +45,31 @@
     };
 
     var _updateBook = function (book) {
+        var deferred = $q.defer();
 
+        $http.put("/api/books", book)
+        .then(function () {
+            deferred.resolve();
+        },
+        function () {
+            deferred.reject();
+        });
+
+        return deferred.promise;
+    };
+
+    var _addBook = function (book) {
+        var deferred = $q.defer();
+
+        $http.post("/api/books", book)
+        .then(function () {
+            deferred.resolve();
+        },
+        function () {
+            deferred.reject();
+        });
+
+        return deferred.promise;
     };
 
     function _findBook(id) {
@@ -66,6 +90,7 @@
         getBooks: _getBooks,
         getBook: _getBook,
         deleteBook: _deleteBook,
-        updateBook: _updateBook
+        updateBook: _updateBook,
+        addBook: _addBook
     };
 }])

@@ -9,6 +9,10 @@
         $location.url('/editBook/' + bookId)
     };
 
+    $scope.addBook = function () {
+        $location.url('/addBook')
+    };
+
     bookService.getBooks().then(
         function () {
             //success
@@ -18,5 +22,6 @@
         })
         .then(function () {
             //anyway
-        }); 
+        });
+    
 }]);

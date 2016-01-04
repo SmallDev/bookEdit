@@ -64,5 +64,21 @@ namespace bookEditor.Data
         {
             return _ctx.Books.Include("Authors");
         }
+
+        public void UpdateBook(Book book)
+        {
+            var result = _ctx.Books.Include("Authors").SingleOrDefault(b => b.Id == book.Id);
+            if (result != null)
+            {
+                result.ISBN = book.ISBN;
+                result.NumberOfPages = book.NumberOfPages;
+                result.Picture = book.Picture;
+                result.Publisher = book.Publisher;
+                result.PublishYear = book.PublishYear;
+                result.Title = book.Title;
+                result.Authors = book.Authors;
+                _ctx.SaveChanges();
+            }
+        }
     }
 }

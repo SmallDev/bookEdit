@@ -25,5 +25,15 @@ namespace bookEditor.Services
         {
             return _bookEditRepository.GetAllBooks();
         }
+
+        public void UpdateBook(Book book)
+        {
+            _bookEditRepository.UpdateBook(book);
+        }
+
+        public void AddBook(Book book)
+        {
+            _bookEditRepository.AddBook(book);
+        }
     }
 }

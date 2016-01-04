@@ -30,5 +30,12 @@
 
     $scope.save = function () {
         bookService.updateBook($scope.book)
+        .then(function (book) {
+            // success
+            $location.url("/books");
+        },
+        function () {
+            //error;
+        });
     };
 }]);

@@ -10,5 +10,9 @@ namespace bookEditor.Services.Interfaces
     public interface IBookService
     {
         IEnumerable<Book> GetBooks();
+
+        void UpdateBook(Book book);
+
+        void AddBook(Book book);
     }
 }

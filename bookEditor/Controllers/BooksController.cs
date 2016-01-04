@@ -27,5 +27,19 @@ namespace bookEditor.Controllers
         {
             return _bookService.GetBooks().ToArray();
         }
+
+        public HttpResponseMessage PutBook(Book book)
+        {
+            _bookService.UpdateBook(book);
+
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
+
+        public HttpResponseMessage PostBook(Book book)
+        {
+            _bookService.AddBook(book);
+
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
     }
 }
