@@ -15,148 +15,57 @@
     </div>
 </div>
 
-<div id="books-container" class="col-md-10">
-    
- 
-    <div class="panel panel-default book-panel">
-        <div class="panel-heading clearfix">
-            <h2 class="panel-title pull-left book-header book-panel-title">Странное какетство</h2>
-            <div class="btn-group pull-right">
-                <a href="#/editBook/1" class="btn btn-default btn-sm glyphicon glyphicon glyphicon-pencil"></a>
-                <a class="btn btn-default btn-sm glyphicon glyphicon-remove"></a>
-            </div>
-        </div>
-        <div class="panel-body">
-            <div class="row">
-                <div class="col-md-3">
-                    <img src="http://placehold.it/140x140" class="img-rounded book-image">
+<div class="col-md-10">
+    <div id="books-container" class="col-md-12" ng-repeat="book in data.books">
+        <div class="panel panel-default book-panel">
+            <div class="panel-heading clearfix">
+                <h2 class="panel-title pull-left book-header book-panel-title">{{book.title}}</h2>
+                <div class="btn-group pull-right">
+                    <a ng-click="$parent.editBook(book.id)" class="btn btn-default btn-sm glyphicon glyphicon glyphicon-pencil"></a>
+                    <a ng-click="$parent.deleteBook(book.id)" class="btn btn-default btn-sm glyphicon glyphicon-remove"></a>
                 </div>
-                <div class="col-md-9">
-                    <div class="row book-info-detail">
-                        <h4 class="book-info-header">Publisher:</h4>
-                        <span class="book-info">Бурбонский олень</span>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="http://placehold.it/140x140" class="img-rounded book-image">
                     </div>
-                    <div class="row book-info-detail">
-                        <h4 class="book-info-header">ISBN:</h4>
-                        <span class="book-info">2-266-11156-6</span>
-                    </div>
-                    <div class="row book-info-detail">
-                        <h4 class="book-info-header">Number of pages:</h4>
-                        <span class="book-info">1000</span>
-                    </div>
-                    <div class="row book-info-detail">
-                        <h4 class="book-info-header">Year:</h4>
-                        <span class="book-info">1986</span>
-                    </div>
+                    <div class="col-md-9">
+                        <div class="row book-info-detail">
+                            <h4 class="book-info-header">Publisher:</h4>
+                            <span class="book-info">{{book.publisher}}</span>
+                        </div>
+                        <div class="row book-info-detail">
+                            <h4 class="book-info-header">ISBN:</h4>
+                            <span class="book-info">{{book.isbn}}</span>
+                        </div>
+                        <div class="row book-info-detail">
+                            <h4 class="book-info-header">Number of pages:</h4>
+                            <span class="book-info">{{book.numberOfPages}}</span>
+                        </div>
+                        <div class="row book-info-detail">
+                            <h4 class="book-info-header">Year:</h4>
+                            <span class="book-info">{{book.publishYear}}</span>
+                        </div>
 
-                    <div class="row">
-                        <h4 class="book-info-header authors-header">Authors</h4>
-                        <div class="short-autor-info-panel">
-                            <div class="short-author-info-inner-block">
-                                <span class="label label-default author-short-info">
-                                    <span>Хромой</span>
-                                    <span>Иван</span>
-                                    <span>Сергеевич</span>
-                                </span>
-                                <span class="label label-default author-short-info">
-                                    <span>Хромой</span>
-                                    <span>Иван</span>
-                                    <span>Сергеевич</span>
-                                </span>
-                                <span class="label label-default author-short-info">
-                                    <span>Хромой</span>
-                                    <span>Иван</span>
-                                    <span>Сергеевич</span>
-                                </span>
-                                <span class="label label-default author-short-info">
-                                    <span>Хромой</span>
-                                    <span>Иван</span>
-                                    <span>Сергеевич</span>
-                                </span>
-                                <span class="label label-default author-short-info">
-                                    <span>Хромой</span>
-                                    <span>Иван</span>
-                                    <span>Сергеевич</span>
-                                </span>
+                        <div class="row">
+                            <h4 class="book-info-header authors-header">Authors</h4>
+                            <div class="short-autor-info-panel">
+                                <div class="short-author-info-inner-block" >
+                                    <span class="label label-default author-short-info" ng-repeat="author in book.authors">
+                                        <span>{{author.lastName}}</span>
+                                        <span>{{author.firstName}}</span>
+                                        <span>{{author.patronymicName}}</span>
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <hr>   
     </div>
-    <hr>
-
-    <div class="panel panel-default book-panel">
-        <div class="panel-heading clearfix">
-            <h2 class="panel-title pull-left book-header book-panel-title">Странное какетство</h2>
-            <div class="btn-group pull-right">
-                <a href="#/editBook/1" class="btn btn-default btn-sm glyphicon glyphicon glyphicon-pencil"></a>
-                <a class="btn btn-default btn-sm glyphicon glyphicon-remove"></a>
-            </div>
-        </div>
-        <div class="panel-body">
-            <div class="row">
-                <div class="col-md-3">
-                    <img src="http://placehold.it/140x140" class="img-rounded book-image">
-                </div>
-                <div class="col-md-9">
-                    <div class="row book-info-detail">
-                        <h4 class="book-info-header">Publisher:</h4>
-                        <span class="book-info">Бурбонский олень</span>
-                    </div>
-                    <div class="row book-info-detail">
-                        <h4 class="book-info-header">ISBN:</h4>
-                        <span class="book-info">2-266-11156-6</span>
-                    </div>
-                    <div class="row book-info-detail">
-                        <h4 class="book-info-header">Number of pages:</h4>
-                        <span class="book-info">1000</span>
-                    </div>
-                    <div class="row book-info-detail">
-                        <h4 class="book-info-header">Year:</h4>
-                        <span class="book-info">1986</span>
-                    </div>
-
-                    <div class="row">
-                        <h4 class="book-info-header authors-header">Authors</h4>
-                        <div class="short-autor-info-panel">
-                            <div class="short-author-info-inner-block">
-                                <span class="label label-default author-short-info">
-                                    <span>Хромой</span>
-                                    <span>Иван</span>
-                                    <span>Сергеевич</span>
-                                </span>
-                                <span class="label label-default author-short-info">
-                                    <span>Хромой</span>
-                                    <span>Иван</span>
-                                    <span>Сергеевич</span>
-                                </span>
-                                <span class="label label-default author-short-info">
-                                    <span>Хромой</span>
-                                    <span>Иван</span>
-                                    <span>Сергеевич</span>
-                                </span>
-                                <span class="label label-default author-short-info">
-                                    <span>Хромой</span>
-                                    <span>Иван</span>
-                                    <span>Сергеевич</span>
-                                </span>
-                                <span class="label label-default author-short-info">
-                                    <span>Хромой</span>
-                                    <span>Иван</span>
-                                    <span>Сергеевич</span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <hr>
-
-   
 </div>
 
 <div class="col-md-2">

@@ -15,9 +15,10 @@ namespace bookEditor
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
-            config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
-            var jsonFormater = config.Formatters.OfType<JsonMediaTypeFormatter>().First();
-            jsonFormater.SerializerSettings.ContractResolver = CamelCasePropertyNameContractResolver;
+            HttpConfiguration globalConfig = GlobalConfiguration.Configuration;
+            globalConfig.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
+            globalConfig.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            globalConfig.Formatters.JsonFormatter.UseDataContractJsonSerializer = false;
 
             // Web API routes
             config.MapHttpAttributeRoutes();

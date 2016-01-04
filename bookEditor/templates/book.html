@@ -1,5 +1,5 @@
 ﻿<div class="page-header">
-    <h1>Edit Book</h1>
+    <h1>{{pageName}}</h1>
 </div>
 
 <div class="col-md-8">
@@ -13,73 +13,41 @@
                 <div class="col-md-9">
                     <div class="input-group input-group edit-book-info-title">
                         <span class="input-group-addon edit-book-info-header" id="sizing-addon1">Title</span>
-                        <input type="text" class="form-control" placeholder="Title" aria-describedby="sizing-addon2">
+                        <input ng-model="book.title" type="text" class="form-control" placeholder="Title" aria-describedby="sizing-addon2">
                     </div>
 
                     <div class="input-group input-group-sm edit-book-info">
                         <span class="input-group-addon edit-book-info-header" id="sizing-addon2">Publisher</span>
-                        <input type="text" class="form-control" placeholder="Publisher" aria-describedby="sizing-addon2">
+                        <input ng-model="book.publisher" type="text" class="form-control" placeholder="Publisher" aria-describedby="sizing-addon2">
                     </div>
 
                     <div class="input-group input-group-sm edit-book-info">
                         <span class="input-group-addon edit-book-info-header" id="sizing-addon2">ISBN</span>
-                        <input type="text" class="form-control" placeholder="ISBN" aria-describedby="sizing-addon2">
+                        <input ng-model="book.isbn" type="text" class="form-control" placeholder="ISBN" aria-describedby="sizing-addon2">
                     </div>
 
                     <div class="input-group input-group-sm edit-book-info-sm">
                         <span class="input-group-addon edit-book-info-header" id="sizing-addon2">Number of pages</span>
-                        <input type="text" class="form-control" placeholder="Number of pages" aria-describedby="sizing-addon2">
+                        <input ng-model="book.numberOfPages" type="text" class="form-control" placeholder="Number of pages" aria-describedby="sizing-addon2">
                     </div>
 
                     <div class="input-group input-group-sm edit-book-info-sm">
                         <span class="input-group-addon edit-book-info-header" id="sizing-addon2">Year</span>
-                        <input type="text" class="form-control" placeholder="Year" aria-describedby="sizing-addon2">
+                        <input ng-model="book.publishYear" type="text" class="form-control" placeholder="Year" aria-describedby="sizing-addon2">
                     </div>
 
                     <div class="row">
                         <h4 class="book-info-header edit-authors-header">Authors</h4>
                         <button class="btn btn-default add-author-btn" data-toggle="modal" data-target="#myModal">Add Author</button>
                         <div class="short-autor-info-panel">
-                            <div class="short-author-info-inner-block">
-                                <span class="label label-default author-short-info edit-author-block">
+                            <div  class="short-author-info-inner-block">
+                                <span ng-repeat="author in book.authors" class="label label-default author-short-info edit-author-block">
                                     <span class="edit-author-name-block">
-                                        <span>Хромой</span>
-                                        <span>Иван</span>
-                                        <span>Сергеевич</span>
+                                        <span>{{author.lastName}}</span>
+                                        <span>{{author.firstName}}</span>
+                                        <span>{{author.patronymicName}}</span>
                                     </span>
-                                    <a class="btn btn-sm glyphicon glyphicon-remove pull-right remove-author-button"></a>
-                                </span>
-                                <span class="label label-default author-short-info edit-author-block">
-                                    <span class="edit-author-name-block">
-                                        <span>Хромой</span>
-                                        <span>Иван</span>
-                                        <span>Сергеевич</span>
-                                    </span>
-                                    <a class="btn btn-sm glyphicon glyphicon-remove pull-right remove-author-button"></a>
-                                </span>
-                                <span class="label label-default author-short-info edit-author-block">
-                                    <span class="edit-author-name-block">
-                                        <span>Хромой</span>
-                                        <span>Иван</span>
-                                        <span>Сергеевич</span>
-                                    </span>
-                                    <a class="btn btn-sm glyphicon glyphicon-remove pull-right remove-author-button"></a>
-                                </span>
-                                <span class="label label-default author-short-info edit-author-block">
-                                    <span class="edit-author-name-block">
-                                        <span>Хромой</span>
-                                        <span>Иван</span>
-                                        <span>Сергеевич</span>
-                                    </span>
-                                    <a class="btn btn-sm glyphicon glyphicon-remove pull-right remove-author-button"></a>
-                                </span>
-                                <span class="label label-default author-short-info edit-author-block">
-                                    <span class="edit-author-name-block">
-                                        <span>Хромой</span>
-                                        <span>Иван</span>
-                                        <span>Сергеевич</span>
-                                    </span>
-                                    <a class="btn btn-sm glyphicon glyphicon-remove pull-right remove-author-button"></a>
+                                    <a ng-click="$parent.deleteAuthor(author.id)" class="btn btn-sm glyphicon glyphicon-remove pull-right remove-author-button"></a>
                                 </span>
                             </div>
                         </div>
