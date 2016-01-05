@@ -1,4 +1,4 @@
-﻿angular.module('bookEditApp', ['ngRoute']).config(['$routeProvider',
+﻿angular.module('bookEditApp', ['ngRoute', 'ngFileUpload']).config(['$routeProvider',
   function($routeProvider) {
       $routeProvider.
         when('/books', {
@@ -20,4 +20,4 @@
         otherwise({
             redirectTo: '/books'
         });
-  }]);;
+  }]);

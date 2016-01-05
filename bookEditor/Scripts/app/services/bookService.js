@@ -5,8 +5,18 @@
         var deferred = $q.defer();
 
         $http.get("/api/books")
-        .then(function (result) {
+          .then(function (result) {
             angular.copy(result.data, _books);
+
+            $.each(_books, function (i, item) {
+                if (item.picture && item.picture.img) {
+                    item.bookHasImage = true;
+                }
+                else {
+                    item.bookHasImage = false;
+                }
+            });
+
             deferred.resolve();
         },
         function () {

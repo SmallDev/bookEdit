@@ -27,6 +27,8 @@ namespace bookEditor
                       "~/Scripts/angular/angular.js",
                       "~/Scripts/app/app.js",
                       "~/Scripts/app/modules/angular-route.js",
+                      "~/Scripts/app/modules/ng-file-upload-shim.js",
+                      "~/Scripts/app/modules/ng-file-upload.js",
                       "~/Scripts/app/controllers/addBookCtrl.js",
                       "~/Scripts/app/controllers/authorListCtrl.js",
                       "~/Scripts/app/controllers/bookListCtrl.js",

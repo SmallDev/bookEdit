@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace bookEditor.Models
@@ -11,6 +12,7 @@ namespace bookEditor.Models
         [Column(TypeName = "varchar(MAX)")]
         public string Img { get; set; }
 
+        [JsonIgnore]
         public virtual Book Book { get; set; } 
     }
 }

@@ -194,6 +194,7 @@
     <Compile Include="Controllers\AuthorsController.cs" />
     <Compile Include="Controllers\BooksController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ImagesController.cs" />
     <Compile Include="Data\BookEditContext.cs" />
     <Compile Include="Data\BookEditMigrateConfig.cs" />
     <Compile Include="Data\BookEditRepository.cs" />
@@ -212,6 +213,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\img\no-img.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -232,6 +236,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Content\bootstrap.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\app\modules\ng-file-upload-shim.js" />
+    <Content Include="Scripts\app\modules\ng-file-upload.js" />
     <Content Include="Scripts\app\services\authorService.js" />
     <Content Include="Scripts\app\services\bookService.js" />
     <Content Include="Scripts\bootstrap\bootstrap.js" />

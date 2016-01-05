@@ -64,12 +64,12 @@ namespace bookEditor.Data
 
         public IQueryable<Book> GetAllBooks()
         {
-            return _ctx.Books.Include("Authors");
+            return _ctx.Books.Include("Authors").Include("Picture");
         }
 
         public void UpdateBook(Book book)
         {
-            var result = _ctx.Books.Include("Authors").SingleOrDefault(b => b.Id == book.Id);
+            var result = _ctx.Books.Include("Authors").Include("Picture").SingleOrDefault(b => b.Id == book.Id);
             if (result != null)
             {
                 result.ISBN = book.ISBN;
@@ -78,7 +78,21 @@ namespace bookEditor.Data
                 result.Publisher = book.Publisher;
                 result.PublishYear = book.PublishYear;
                 result.Title = book.Title;
-                result.Authors = book.Authors;
+
+                var authors = result.Authors.ToList();
+                foreach (var a in authors)
+                {
+                    result.Authors.Remove(a);
+                }
+
+
+                var authorIdsToAdd = book.Authors.Select(at => at.Id).ToArray();
+                var authorsToAdd = _ctx.Authors.Where(_ => authorIdsToAdd.Contains(_.Id)).ToArray();
+
+                foreach (var a in authorsToAdd)
+                {
+                    result.Authors.Add(a);
+                }
                 _ctx.SaveChanges();
             }
         }
