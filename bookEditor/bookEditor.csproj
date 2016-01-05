@@ -210,6 +210,8 @@
     <Compile Include="Services\BookService.cs" />
     <Compile Include="Services\Interfaces\IAuthorService.cs" />
     <Compile Include="Services\Interfaces\IBookService.cs" />
+    <Compile Include="Services\Interfaces\IPictureService.cs" />
+    <Compile Include="Services\PictureService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />

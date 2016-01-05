@@ -26,6 +26,7 @@ namespace bookEditor.Data
                         Publisher = "O'Relly",
                         ISBN = "2-266-11156",
                         PublishYear = "1984",
+                        NumberOfPages = 1000,
                         Authors = new Author []
                         {
                             new Author
@@ -48,6 +49,7 @@ namespace bookEditor.Data
                         Publisher = "O'Relly",
                         ISBN = "2-266-17156",
                         PublishYear = "1993",
+                        NumberOfPages = 100,
                         Authors = new Author []
                         {
                             new Author

@@ -1,4 +1,5 @@
 ﻿using bookEditor.Models;
+using bookEditor.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,23 +13,28 @@ namespace bookEditor.Controllers
 {
     public class ImagesController : ApiController
     {
+        private IPictureService _pictureService;
+
+        public ImagesController(IPictureService pictureService)
+        {
+            if (pictureService == null)
+            {
+                throw new ArgumentNullException("PictureService was not initialized");
+            }
+
+            _pictureService = pictureService;
+        }
+
+
         public HttpResponseMessage PostImage()
         {
             var httpRequest = HttpContext.Current.Request;
             if (httpRequest.Files.Count == 1)
             {
-                var fl12 = httpRequest.Files[0];
-                string bt;
-                using (var memoryStream = new MemoryStream())
-                {
-                    fl12.InputStream.CopyTo(memoryStream);
-                    bt =  Convert.ToBase64String(memoryStream.ToArray());
-                }
+                var inputFile = httpRequest.Files[0];
+                var bookPicture = _pictureService.CreateBookPicture(inputFile.InputStream);
 
-                var bp = new BookPicture { Img = bt };
-
-                return Request.CreateResponse(HttpStatusCode.Created, bp);
-
+                return Request.CreateResponse(HttpStatusCode.Created, bookPicture);
             }
             else
             {

@@ -2,6 +2,7 @@
     $scope.pageName = "Edit Book";
     $scope.book = {};
     $scope.bookHasImage = false;
+    $scope.statusMessage = "";
     
     bookService.getBook($routeParams.id)
         .then(function (book) {
@@ -57,11 +58,22 @@
             file.upload.then(function (response) {
                 $scope.book.picture = { img: response.data.img };
                 $scope.bookHasImage = true;
-            }, function (response) {
-                
+                $scope.statusMessage = "New image uploaded successfully."
+            }, function () {
+                $scope.statusMessage = "Image was not uploaded due to some server problems. Please try again later."
             });
         }
-    }
+    };
+
+    $scope.$watch('errFile', function (newVal, oldVal) {
+        if (newVal && newVal.hasOwnProperty('$error')) {
+            if (newVal.$error == "maxSize") {
+                $scope.statusMessage = "Image upload error! File size should be equal or smaller then " + newVal.$errorParam;
+            } else if (newVal.$error == "pattern") {
+                $scope.statusMessage = "Image upload error! File could have only .jpeg or .jpg extensions.";
+            }
+        }
+    }, true);
 
 
 }]);

@@ -51,8 +51,11 @@ namespace bookEditor.Data
 
         public void DeleteBook(int bookId)
         {
-            var book = new Book() { Id = bookId };
-            _ctx.Books.Attach(book);
+            var book = _ctx.Books.Include("Picture").Single(_ => _.Id == bookId); 
+
+            if(book.Picture != null)
+            _ctx.BookPictures.Remove(book.Picture);
+
             _ctx.Books.Remove(book);
             _ctx.SaveChanges();
         }
@@ -69,7 +72,7 @@ namespace bookEditor.Data
 
         public void UpdateBook(Book book)
         {
-            var result = _ctx.Books.Include("Authors").Include("Picture").SingleOrDefault(b => b.Id == book.Id);
+            var result = _ctx.Books.Include("Authors").Include("Picture").Single(b => b.Id == book.Id);
             if (result != null)
             {
                 result.ISBN = book.ISBN;
