@@ -1,28 +1,42 @@
-﻿angular.module('bookEditApp').controller('addBookCtrl', ['$scope', 'bookService', '$location', 'Upload', function ($scope, bookService, $location, Upload) {
+﻿angular.module('bookEditApp').controller('addBookCtrl', ['$scope', 'bookService', '$location', 'Upload', 'notificationService', function ($scope, bookService, $location, Upload, notificationService) {
     $scope.pageName = "Add Book";
     $scope.book = {};
     $scope.bookHasImage = false;
-    $scope.statusMessage = "";
+
+    $scope.notification = {};
+    notificationService.init($scope.notification);
+
+    $scope.hideNotificationPanel = function () {
+        notificationService.hideNotification($scope.notification);
+    };
 
     $scope.cancel = function () {
+        notificationService.hideNotification($scope.notification);
         $location.url("/books")
     };
 
     $scope.save = function () {
         bookService.addBook($scope.book)
         .then(function (book) {
-            // success
+            notificationService.setSuccessInitMessage("Book was addded successfully.");
             $location.url("/books");
         },
         function () {
-            //error;
+            notificationService.setErrorInitMessage("Book was not addded, because of some server errors.");
         });
     };
 
     $scope.uploadFiles = function (file, errFiles) {
 
-        $scope.f = file;
-        $scope.errFile = errFiles && errFiles[0];
+        var errFile = errFiles && errFiles[0];
+        if (errFile) {
+            if (errFile.$error == "maxSize") {
+                notificationService.showErrorMessage("Image upload error! File size should be equal or smaller then " + errFile.$errorParam, $scope.notification);
+            } else if (errFile.$error == "pattern") {
+                notificationService.showErrorMessage("Image upload error! File could have only .jpeg or .jpg extensions.", $scope.notification);
+            }
+        }
+
         if (file) {
             file.upload = Upload.upload({
                 url: '/api/images',
@@ -32,21 +46,11 @@
             file.upload.then(function (response) {
                 $scope.book.picture = { img: response.data.img };
                 $scope.bookHasImage = true;
-                $scope.statusMessage = "New image uploaded successfully."
+                notificationService.showSuccessMessage("New image uploaded successfully.", $scope.notification);
             }, function () {
-                $scope.statusMessage = "Image was not uploaded due to some server problems. Please try again later."
+                notificationService.showErrorMessage("Image was not uploaded due to some server problems. Please try again later.", $scope.notification);
             });
         }
     };
-
-    $scope.$watch('errFile', function (newVal, oldVal) {
-        if (newVal && newVal.hasOwnProperty('$error')) {
-            if (newVal.$error == "maxSize") {
-                $scope.statusMessage = "Image upload error! File size should be equal or smaller then " + newVal.$errorParam;
-            } else if (newVal.$error == "pattern") {
-                $scope.statusMessage = "Image upload error! File could have only .jpeg or .jpg extensions.";
-            }
-        }
-    }, true);
 
 }]);

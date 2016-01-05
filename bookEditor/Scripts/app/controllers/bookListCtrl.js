@@ -1,21 +1,30 @@
-﻿angular.module('bookEditApp').controller('bookListCtrl', ['$scope', 'bookService', '$location', function ($scope, bookService, $location) {
+﻿angular.module('bookEditApp').controller('bookListCtrl', ['$scope', 'bookService', '$location', 'notificationService', function ($scope, bookService, $location, notificationService) {
     $scope.data = bookService;
+
+    $scope.notification = {};
+    notificationService.init($scope.notification);
+
+    $scope.hideNotificationPanel = function () {
+        notificationService.hideNotification($scope.notification);
+    };
 
     $scope.deleteBook = function (bookId) {
         bookService.deleteBook(bookId).then(
             function() {
-                //success
+                notificationService.showSuccessMessage("Book was deleted.", $scope.notification);
             },
             function () {
-                //error
+                notificationService.showErrorMessage("Book was not deleted, due to server problems. Pleasy try later.", $scope.notification);
             });
     };
 
     $scope.editBook = function (bookId) {
+        notificationService.hideNotification($scope.notification);
         $location.url('/editBook/' + bookId)
     };
 
     $scope.addBook = function () {
+        notificationService.hideNotification($scope.notification);
         $location.url('/addBook')
     };
 

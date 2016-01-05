@@ -2,9 +2,9 @@
     <h1>{{pageName}}</h1>
 </div>
 
-<div class="alert alert-success col-md-8" role="alert">
-    <a href="#" class="alert-link">{{statusMessage}}</a>
-    <a class="btn btn-xs glyphicon glyphicon-remove pull-right"></a>
+<div ng-if="notification.showMessageFlag" ng-class="notification.messageType" class="alert col-md-8" role="alert">
+    <a href="#" class="alert-link">{{notification.infoMessage}}</a>
+    <a ng-click="hideNotificationPanel()" class="btn btn-xs glyphicon glyphicon-remove pull-right"></a>
 </div>
 
 <div class="col-md-8">

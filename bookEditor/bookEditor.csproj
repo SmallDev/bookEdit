@@ -230,7 +230,7 @@
     <Content Include="Scripts\app\controllers\authorListCtrl.js" />
     <Content Include="Scripts\app\controllers\bookListCtrl.js" />
     <Content Include="Scripts\app\controllers\editBookCtrl.js" />
-    <Content Include="Scripts\app\controllers\mainCtrl.js" />
+    <Content Include="Scripts\app\controllers\navigationCtrl.js" />
     <Content Include="Scripts\app\modules\angular-route.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -242,6 +242,7 @@
     <Content Include="Scripts\app\modules\ng-file-upload.js" />
     <Content Include="Scripts\app\services\authorService.js" />
     <Content Include="Scripts\app\services\bookService.js" />
+    <Content Include="Scripts\app\services\notificationService.js" />
     <Content Include="Scripts\bootstrap\bootstrap.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

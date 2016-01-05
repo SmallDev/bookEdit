@@ -1,26 +1,33 @@
-﻿angular.module('bookEditApp').controller('authorListCtrl', ['$scope', 'authorService', function ($scope, authorService) {
+﻿angular.module('bookEditApp').controller('authorListCtrl', ['$scope', 'authorService', 'notificationService', function ($scope, authorService, notificationService) {
 
     $scope.data = authorService;
+
+    $scope.notification = {};
+    notificationService.init($scope.notification);
+
+    $scope.hideNotificationPanel = function () {
+        notificationService.hideNotification($scope.notification);
+    };
 
     $scope.addAuthor = function () {
         authorService.addAuthor().then(
             function () {
                 
-                //success
+                notificationService.showSuccessMessage("Author was added sucessfully", $scope.notification);
             },
             function () {
                 $scope.author = {};
-                //error
+                notificationService.showErrorMessage("Can't add author for some reason. Pleasy try later.", $scope.notification);
             })
     };
 
     $scope.deleteAuthor = function (id) {
         authorService.deleteAuthor(id).then(
             function () {
-                //success
+                notificationService.showSuccessMessage("Author was deleted successfully.", $scope.notification);
             },
             function () {
-                //error
+                notificationService.showErrorMessage("Can't delet author for some reason. Pleasy try later.", $scope.notification);
             })
     };
 
@@ -29,7 +36,8 @@
             //success
         },
         function () {
-            //error
+            notificationService.setErrorInitMessage("Can't get authors list.");
+            $location.url("/books");
         })
         .then(function () {
             //anyway

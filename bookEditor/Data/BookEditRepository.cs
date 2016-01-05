@@ -88,7 +88,6 @@ namespace bookEditor.Data
                     result.Authors.Remove(a);
                 }
 
-
                 var authorIdsToAdd = book.Authors.Select(at => at.Id).ToArray();
                 var authorsToAdd = _ctx.Authors.Where(_ => authorIdsToAdd.Contains(_.Id)).ToArray();
 

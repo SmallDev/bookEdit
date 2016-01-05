@@ -2,9 +2,9 @@
     <h1>Available books</h1>
 </div>
 
-<div class="alert alert-success" role="alert">
-    <a href="#" class="alert-link">Author added</a>
-    <a class="btn btn-xs glyphicon glyphicon-remove pull-right"></a>
+<div ng-if="notification.showMessageFlag" ng-class="notification.messageType" class="alert" role="alert">
+    <a href="#" class="alert-link">{{notification.infoMessage}}</a>
+    <a ng-click="hideNotificationPanel()" class="btn btn-xs glyphicon glyphicon-remove pull-right"></a>
 </div>
 
 <div class="col-md-10 sort-block">
