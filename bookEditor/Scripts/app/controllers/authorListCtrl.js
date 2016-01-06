@@ -14,6 +14,7 @@
             function () {
                 
                 notificationService.showSuccessMessage("Author was added sucessfully", $scope.notification);
+                $scope.authorForm.$setPristine();
             },
             function () {
                 $scope.author = {};

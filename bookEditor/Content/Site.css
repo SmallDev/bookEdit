@@ -171,3 +171,25 @@
     width: 70px;
 
 }
+
+input.ng-invalid-unique-author.ng-dirty
+{
+    border: 1px solid red;
+}
+
+input.ng-invalid.ng-dirty
+{
+    border: 1px solid red;
+}
+
+.author-validation-message
+{
+    margin-bottom: 15px;
+    display: block;
+    color: red;
+}
+
+.author-unique-validation-message
+{
+    margin-top: 15px;
+}
