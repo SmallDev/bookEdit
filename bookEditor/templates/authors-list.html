@@ -29,25 +29,30 @@
                     <span class="input-group-addon author-name-title" id="sizing-addon3">First name</span>
                     <input name="firstName" required ng-maxlength="20" unique-author ng-model="data.author.firstName" type="text" class="form-control" placeholder="first name" aria-describedby="sizing-addon3" />
                 </div>
-                <span class="author-validation-message" ng-show="authorForm.firstName.$dirty && authorForm.firstName.$error.required">First name is required field</span>
-                <span class="author-validation-message" ng-show="authorForm.firstName.$dirty && authorForm.firstName.$error.maxlength">Field length should not exceed 20 characters</span>
+                <div class="author-validation-block">
+                    <span class="author-validation-message" ng-show="authorForm.firstName.$dirty && authorForm.firstName.$error.required">First name is required field</span>
+                    <span class="author-validation-message" ng-show="authorForm.firstName.$dirty && authorForm.firstName.$error.maxlength">Field length should not exceed 20 characters</span>
+                </div>
 
                 <div class="input-group input-group-sm author-name-block">
                     <span class="input-group-addon author-name-title" id="sizing-addon3">Last name</span>
                     <input name="lastName" required ng-maxlength="20" unique-author ng-model="data.author.lastName" type="text" class="form-control" placeholder="last name" aria-describedby="sizing-addon3" />
                 </div>
-                <span class="author-validation-message"  ng-show="authorForm.lastName.$dirty && authorForm.lastName.$error.required">Last name is required field</span>
-                <span class="author-validation-message"  ng-show="authorForm.lastName.$dirty && authorForm.lastName.$error.maxlength">Field length should not exceed 20 characters</span>
+                <div class="author-validation-block">
+                    <span class="author-validation-message" ng-show="authorForm.lastName.$dirty && authorForm.lastName.$error.required">Last name is required field</span>
+                    <span class="author-validation-message" ng-show="authorForm.lastName.$dirty && authorForm.lastName.$error.maxlength">Field length should not exceed 20 characters</span>
+                </div>
 
                 <div class="input-group input-group-sm author-name-block">
                     <span class="input-group-addon author-name-title" id="sizing-addon3">Patronymic name</span>
                     <input name="patronymicName" unique-author ng-model="data.author.patronymicName" type="text" class="form-control" placeholder="patronymic name" aria-describedby="sizing-addon3" />
                 </div>
 
-                <span class="author-unique-validation-message author-validation-message" ng-show="(authorForm.firstName.$dirty && authorForm.lastName.$dirty) && (authorForm.firstName.$error.uniqueAuthor || authorForm.lastName.$error.uniqueAuthor || authorForm.patronymicName.$error.uniqueAuthor)">This author already added</span>
-
-                <input type="submit" class="btn btn-primary" value="Add Author" ng-disabled="authorForm.$invalid" />
-            </form>
-        </div>
+                <div class="author-unique-validation-block">
+                    <span class="author-unique-validation-message author-validation-message" ng-show="(authorForm.firstName.$dirty && authorForm.lastName.$dirty) && (authorForm.firstName.$error.uniqueAuthor || authorForm.lastName.$error.uniqueAuthor || authorForm.patronymicName.$error.uniqueAuthor)">This author already added</span>
+                </div>
+        <input type="submit" class="btn btn-primary" value="Add Author" ng-disabled="authorForm.$invalid" />
+        </form>
+    </div>
     </div>
 </div>

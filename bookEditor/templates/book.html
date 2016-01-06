@@ -16,52 +16,69 @@
                     <img width="140" height="140" ng-if="!bookHasImage" src="/Content/img/no-img.jpg" class="img-rounded book-image">
                     <button type="file" ngf-select="uploadFiles($file, $invalidFiles)" accept="image/*"  ngf-max-size="1MB" ngf-pattern="'.jpeg,.jpg'" class="btn btn-default image-upload-button">Upload Image</button>
                 </div>
-                <div class="col-md-9">
-                    <div class="input-group input-group edit-book-info-title">
-                        <span class="input-group-addon edit-book-info-header" id="sizing-addon1">Title</span>
-                        <input ng-model="book.title" type="text" class="form-control" placeholder="Title" aria-describedby="sizing-addon2">
-                    </div>
+                <form name="bookForm" ng-submit="save()">
+                    <div class="col-md-9">
+                        <div class="input-group input-group edit-book-info-title">
+                            <span class="input-group-addon edit-book-info-header" id="sizing-addon1">Title</span>
+                            <input name="title" ng-model="book.title" type="text" class="form-control" placeholder="Title" aria-describedby="sizing-addon2" required>
+                        </div>
+                        <div class="book-validation-block">
+                            <span class="book-validation-message" ng-show="bookForm.title.$dirty && bookForm.title.$error.required">Title is required field</span>
+                        </div>
 
-                    <div class="input-group input-group-sm edit-book-info">
-                        <span class="input-group-addon edit-book-info-header" id="sizing-addon2">Publisher</span>
-                        <input ng-model="book.publisher" type="text" class="form-control" placeholder="Publisher" aria-describedby="sizing-addon2">
-                    </div>
+                        <div class="input-group input-group-sm edit-book-info">
+                            <span class="input-group-addon edit-book-info-header" id="sizing-addon2">Publisher</span>
+                            <input name="publisher" ng-model="book.publisher" ng-maxlength="30" type="text" class="form-control" placeholder="Publisher" aria-describedby="sizing-addon2">
+                        </div>
+                        <div class="book-validation-block">
+                            <span class="book-validation-message" ng-show="bookForm.publisher.$dirty && bookForm.publisher.$error.maxlength">Field length should not exceed 30 characters</span>
+                        </div>
 
-                    <div class="input-group input-group-sm edit-book-info">
-                        <span class="input-group-addon edit-book-info-header" id="sizing-addon2">ISBN</span>
-                        <input ng-model="book.isbn" type="text" class="form-control" placeholder="ISBN" aria-describedby="sizing-addon2">
-                    </div>
+                        <div class="input-group input-group-sm edit-book-info">
+                            <span class="input-group-addon edit-book-info-header" id="sizing-addon2">ISBN</span>
+                            <input name="isbn" ng-model="book.isbn" type="text" class="form-control" placeholder="ISBN" aria-describedby="sizing-addon2" required>
+                        </div>
+                        <div class="book-validation-block">
+                            <span class="book-validation-message" ng-show="bookForm.isbn.$dirty && bookForm.isbn.$error.required">ISBN is required field</span>
+                        </div>
 
-                    <div class="input-group input-group-sm edit-book-info-sm">
-                        <span class="input-group-addon edit-book-info-header" id="sizing-addon2">Number of pages</span>
-                        <input ng-model="book.numberOfPages" type="text" class="form-control" placeholder="Number of pages" aria-describedby="sizing-addon2">
-                    </div>
+                        <div class="input-group input-group-sm edit-book-info-sm">
+                            <span class="input-group-addon edit-book-info-header" id="sizing-addon2">Number of pages</span>
+                            <input name="numberOfPages" ng-model="book.numberOfPages" type="text" class="form-control" placeholder="Number of pages" aria-describedby="sizing-addon2" required>
+                        </div>
+                        <div class="book-validation-block">
+                            <span class="book-validation-message" ng-show="bookForm.numberOfPages.$dirty && bookForm.numberOfPages.$error.required">Number of pages is required field</span>
+                        </div>
 
-                    <div class="input-group input-group-sm edit-book-info-sm">
-                        <span class="input-group-addon edit-book-info-header" id="sizing-addon2">Year</span>
-                        <input ng-model="book.publishYear" type="text" class="form-control" placeholder="Year" aria-describedby="sizing-addon2">
-                    </div>
+                        <div class="input-group input-group-sm edit-book-info-sm">
+                            <span class="input-group-addon edit-book-info-header" id="sizing-addon2">Year</span>
+                            <input name="publishYear" ng-model="book.publishYear" type="text" class="form-control" placeholder="Year" aria-describedby="sizing-addon2" required>
+                        </div>
+                        <div class="book-validation-block">
+                            <span class="book-validation-message" ng-show="bookForm.publishYear.$dirty && bookForm.publishYear.$error.required">Publish year is required field</span>
+                        </div>
 
-                    <div class="row">
-                        <h4 class="book-info-header edit-authors-header">Authors</h4>
-                        <button class="btn btn-default add-author-btn" data-toggle="modal" data-target="#myModal">Add Author</button>
-                        <div class="short-autor-info-panel">
-                            <div class="short-author-info-inner-block">
-                                <span ng-repeat="author in book.authors" class="label label-default author-short-info edit-author-block">
-                                    <span class="edit-author-name-block">
-                                        <span>{{author.lastName}}</span>
-                                        <span>{{author.firstName}}</span>
-                                        <span>{{author.patronymicName}}</span>
+                        <div class="row">
+                            <h4 class="book-info-header edit-authors-header">Authors</h4>
+                            <button class="btn btn-default add-author-btn" data-toggle="modal" data-target="#myModal">Add Author</button>
+                            <div class="short-autor-info-panel">
+                                <div class="short-author-info-inner-block">
+                                    <span ng-repeat="author in book.authors" class="label label-default author-short-info edit-author-block">
+                                        <span class="edit-author-name-block">
+                                            <span>{{author.lastName}}</span>
+                                            <span>{{author.firstName}}</span>
+                                            <span>{{author.patronymicName}}</span>
+                                        </span>
+                                        <a ng-click="$parent.deleteAuthor(author.id)" class="btn btn-sm glyphicon glyphicon-remove pull-right remove-author-button"></a>
                                     </span>
-                                    <a ng-click="$parent.deleteAuthor(author.id)" class="btn btn-sm glyphicon glyphicon-remove pull-right remove-author-button"></a>
-                                </span>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <button ng-click="save()" class="btn btn-primary pull-right book-save-button">Save</button>
-                    <button ng-click="cancel()" class="btn btn-default pull-right">Cancel</button>
-                </div>
+                        <input type="submit" class="btn btn-primary pull-right book-save-button" ng-disabled="bookForm.$invalid" value="Save" />
+                        <button ng-click="cancel()" class="btn btn-default pull-right">Cancel</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

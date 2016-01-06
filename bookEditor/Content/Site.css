@@ -55,7 +55,6 @@
 
 .author-name-block
 {
-    margin-bottom: 15px;
     width: 400px;
 }
 
@@ -108,19 +107,16 @@
 
 .edit-book-info
 {
-    margin-bottom: 20px;
     width: 450px;
 }
 
 .edit-book-info-title
 {
-    margin-bottom: 30px;
     width: 450px;
 }
 
 .edit-book-info-sm
 {
-    margin-bottom: 20px;
     width: 225px;
 }
 
@@ -184,7 +180,17 @@ input.ng-invalid.ng-dirty
 
 .author-validation-message
 {
-    margin-bottom: 15px;
+    margin-top: 3px;
+    display: block;
+    color: red;
+}
+
+
+
+.book-validation-message
+{
+    margin-top: 3px;
+    margin-bottom: 10px;
     display: block;
     color: red;
 }
@@ -192,4 +198,19 @@ input.ng-invalid.ng-dirty
 .author-unique-validation-message
 {
     margin-top: 15px;
+}
+
+.book-validation-block
+{
+    min-height: 30px;
+}
+
+.author-validation-block
+{
+    min-height: 30px;
+}
+
+.author-unique-validation-block
+{
+    min-height: 35px;
 }
