@@ -25,7 +25,7 @@ namespace bookEditor.Data
                         Title = "Story Book",
                         Publisher = "O'Relly",
                         ISBN = "2-266-11156",
-                        PublishYear = "1984",
+                        PublishYear = 1984,
                         NumberOfPages = 1000,
                         Authors = new Author []
                         {
@@ -48,7 +48,7 @@ namespace bookEditor.Data
                         Title = "Lord Of The Time",
                         Publisher = "O'Relly",
                         ISBN = "2-266-17156",
-                        PublishYear = "1993",
+                        PublishYear = 1993,
                         NumberOfPages = 100,
                         Authors = new Author []
                         {

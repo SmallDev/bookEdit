@@ -21,6 +21,9 @@
 
         $http.post("/api/authors", _author)
             .then(function (result) {
+                if (!result.data.patronymicName) {
+                    result.data.patronymicName = "";
+                }
                 _authors.push(result.data);
                 clearAuthorInfo();
 

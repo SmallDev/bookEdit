@@ -23,7 +23,7 @@ namespace bookEditor.Models
 
         public int NumberOfPages { get; set; }
         
-        public string PublishYear { get; set; }
+        public int PublishYear { get; set; }
         
         public virtual BookPicture Picture { get; set; }
         

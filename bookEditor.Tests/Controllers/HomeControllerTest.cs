@@ -24,6 +24,5 @@ namespace bookEditor.Tests.Controllers
             // Assert
             Assert.IsNotNull(result);
         }
-
    }
 }
