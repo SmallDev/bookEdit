@@ -1,5 +1,8 @@
-﻿angular.module('bookEditApp').controller('bookListCtrl', ['$scope', 'bookService', '$location', 'notificationService', function ($scope, bookService, $location, notificationService) {
+﻿angular.module('bookEditApp').controller('bookListCtrl', ['$scope', 'bookService', '$location', 'notificationService', '$cookies', function ($scope, bookService, $location, notificationService, $cookies) {
     $scope.data = bookService;
+
+    var orderByTitle = "title";
+    var orderByPublishYear = "publishYear";
 
     $scope.notification = {};
     notificationService.init($scope.notification);
@@ -8,6 +11,38 @@
         notificationService.hideNotification($scope.notification);
     };
 
+    $scope.orderByTitle = function () {
+        $scope.titleSortButton = "btn-primary";
+        $scope.yearSortButton = "btn-default";
+        $cookies.put('bookEditAppSort', orderByTitle);
+        $scope.orderCategory = orderByTitle;
+    };
+
+    $scope.orderByPublishYear = function () {
+        $scope.titleSortButton = "btn-default";
+        $scope.yearSortButton = "btn-primary";
+        $cookies.put('bookEditAppSort', orderByPublishYear);
+        $scope.orderCategory = orderByPublishYear;
+    };
+
+    // init sort order
+    var sortCookie = $cookies.get('bookEditAppSort'); 
+    if (sortCookie) {
+        switch (sortCookie) {
+            case orderByTitle:
+                $scope.orderByTitle();
+                break;
+            case orderByPublishYear:
+                $scope.orderByPublishYear();
+                break;
+
+            default:
+                $scope.orderByTitle();
+        }
+    } else {
+        $scope.orderByTitle();
+    };
+    
     $scope.deleteBook = function (bookId) {
         bookService.deleteBook(bookId).then(
             function() {

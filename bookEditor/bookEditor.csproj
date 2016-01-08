@@ -244,6 +244,7 @@
     <Content Include="Scripts\app\controllers\navigationCtrl.js" />
     <Content Include="Scripts\app\directives\serverSideValidationDirective.js" />
     <Content Include="Scripts\app\directives\uniqueAuthorDirective.js" />
+    <Content Include="Scripts\app\modules\angular-cookies.js" />
     <Content Include="Scripts\app\modules\angular-route.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

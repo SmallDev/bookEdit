@@ -10,13 +10,13 @@
 <div class="col-md-10 sort-block">
     <span class="sort-lable">Order By</span>
     <div class="btn-group" role="group">
-        <button type="button" class="btn btn-default">Title</button>
-        <button type="button" class="btn btn-default">Year</button>
+        <button ng-click="orderByTitle()" type="button" ng-class="titleSortButton" class="btn">Title</button>
+        <button ng-click="orderByPublishYear()" type="button" ng-class="yearSortButton" class="btn">Year</button>
     </div>
 </div>
 
 <div class="col-md-10">
-    <div id="books-container" class="col-md-12" ng-repeat="book in data.books">
+    <div id="books-container" class="col-md-12" ng-repeat="book in data.books | orderBy: orderCategory">
         <div class="panel panel-default book-panel">
             <div class="panel-heading clearfix">
                 <h2 class="panel-title pull-left book-header book-panel-title">{{book.title}}</h2>

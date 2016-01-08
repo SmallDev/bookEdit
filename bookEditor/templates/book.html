@@ -20,10 +20,11 @@
                     <div class="col-md-9">
                         <div class="input-group input-group edit-book-info-title">
                             <span class="input-group-addon edit-book-info-header" id="sizing-addon1">Title</span>
-                            <input name="title" ng-model="book.title" type="text" class="form-control" placeholder="Title" aria-describedby="sizing-addon2" required>
+                            <input name="title" ng-model="book.title" type="text" class="form-control" placeholder="Title" aria-describedby="sizing-addon2" ng-maxlength="30" required>
                         </div>
                         <div class="book-validation-block">
                             <span class="book-validation-message" ng-show="bookForm.title.$dirty && bookForm.title.$error.required">Title is required field</span>
+                            <span class="book-validation-message" ng-show="bookForm.title.$dirty && bookForm.title.$error.maxlength">Title length should not exceed 30 characters</span>
                         </div>
 
                         <div class="input-group input-group-sm edit-book-info">
@@ -79,7 +80,7 @@
                             </div>
                         </div>
 
-                        <input style="display:none" name="authorsCount" type="number" min=1 ng-model="book.authors.length" />
+                        <input style="display:none" name="authorsCount" type="number" min="1" ng-model="book.authors.length" required/>
                         <div class="book-validation-block">
                             <span class="book-validation-message" ng-show="bookForm.authorsCount.$error.min">Book should have at least one author.</span>
                         </div>

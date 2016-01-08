@@ -11,10 +11,6 @@ namespace bookEditor
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
-
             bundles.Add(new ScriptBundle("~/bundles/jsApp").Include(
                       "~/Scripts/angular/angular.js",
                       "~/Scripts/app/app.js",
@@ -22,6 +18,7 @@ namespace bookEditor
                       "~/Scripts/app/modules/ng-file-upload-shim.js",
                       "~/Scripts/app/modules/ng-file-upload.js",
                       "~/Scripts/app/modules/ngDialog.js",
+                      "~/Scripts/app/modules/angular-cookies.js",
                       "~/Scripts/app/controllers/addAuthorModalCtrl.js",
                       "~/Scripts/app/controllers/addBookCtrl.js",
                       "~/Scripts/app/controllers/authorListCtrl.js",
