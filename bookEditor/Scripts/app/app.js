@@ -1,4 +1,4 @@
-﻿angular.module('bookEditApp', ['ngRoute', 'ngFileUpload']).config(['$routeProvider',
+﻿angular.module('bookEditApp', ['ngRoute', 'ngFileUpload', 'ngDialog']).config(['$routeProvider',
   function($routeProvider) {
       $routeProvider.
         when('/books', {

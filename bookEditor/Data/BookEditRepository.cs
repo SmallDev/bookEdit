@@ -30,6 +30,11 @@ namespace bookEditor.Data
 
         public void AddBook(Book newBook)
         {
+            var authorIdsToAdd = newBook.Authors.Select(at => at.Id).ToArray();
+            var authorsToAdd = _ctx.Authors.Where(_ => authorIdsToAdd.Contains(_.Id)).ToArray();
+
+            newBook.Authors = authorsToAdd;         
+
             _ctx.Books.Add(newBook);
             _ctx.SaveChanges();
         }

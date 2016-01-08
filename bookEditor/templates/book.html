@@ -63,7 +63,7 @@
 
                         <div class="row">
                             <h4 class="book-info-header edit-authors-header">Authors</h4>
-                            <button class="btn btn-default add-author-btn" data-toggle="modal" data-target="#myModal">Add Author</button>
+                            <button class="btn btn-default add-author-btn" type="button" ng-click="addAuthor()">Add Author</button>
                             <div class="short-autor-info-panel">
                                 <div class="short-author-info-inner-block">
                                     <span ng-repeat="author in book.authors" class="label label-default author-short-info edit-author-block">

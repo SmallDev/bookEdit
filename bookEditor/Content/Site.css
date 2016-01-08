@@ -214,3 +214,16 @@ input.ng-invalid.ng-dirty
 {
     min-height: 35px;
 }
+
+.ngdialog-content{
+    background: white!important;
+}
+
+div.ngdialog{
+    overflow: hidden;
+}
+
+.author-select-item
+{
+    width: 95% !important;
+}

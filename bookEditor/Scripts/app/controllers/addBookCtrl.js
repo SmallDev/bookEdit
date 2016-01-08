@@ -1,4 +1,4 @@
-﻿angular.module('bookEditApp').controller('addBookCtrl', ['$scope', 'bookService', '$location', 'Upload', 'notificationService', function ($scope, bookService, $location, Upload, notificationService) {
+﻿angular.module('bookEditApp').controller('addBookCtrl', ['$scope', 'bookService', '$location', 'Upload', 'notificationService', 'ngDialog', function ($scope, bookService, $location, Upload, notificationService, ngDialog) {
     $scope.pageName = "Add Book";
     $scope.book = {};
     $scope.bookHasImage = false;
@@ -53,4 +53,23 @@
         }
     };
 
+    $scope.addAuthor = function () {
+        ngDialog.open({
+            template: 'templates/add-author-modal.html',
+            controller: 'addAuthorModalCtrl',
+            resolve: {
+                addedAuthors: function authorFactory() {
+                    return $scope.book.authors;
+                }
+            }
+        }).closePromise.then(function (data) {
+            if (data.value && data.value != "$document" && data.value != "$closeButton") {
+                if ($scope.book.authors) {
+                    $scope.book.authors.push(data.value);
+                } else {
+                    $scope.book.authors = [data.value];
+                }
+            }
+        });
+    }
 }]);

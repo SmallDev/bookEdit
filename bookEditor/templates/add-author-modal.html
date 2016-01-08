@@ -1,0 +1,16 @@
+﻿<div class="modal-header">
+    <h4 class="modal-title" id="myModalLabel">Add Author</h4>
+</div>
+<div class="modal-body">
+    <h3 ng-show="showEmptyListMessage">No authors to add</h3>
+    <div ng-show="!showEmptyListMessage" class="list-group add-authors-list">
+        <button ng-repeat="author in authors" ng-click="selectAuthor(author)" type="button" class="list-group-item author-select-item" data-dismiss="modal">
+            <span>{{author.lastName}}</span>
+            <span>{{author.firstName}}</span>
+            <span>{{author.patronymicName}}</span>
+        </button>
+
+    </div>
+</div>
+<div class="modal-footer">
+</div>

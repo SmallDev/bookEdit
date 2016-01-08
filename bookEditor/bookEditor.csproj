@@ -218,6 +218,10 @@
     <Content Include="Content\img\no-img.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\.css" />
+    <Content Include="Content\ngDialog-theme-default.css" />
+    <Content Include="Content\ngDialog-theme-plain.css" />
+    <Content Include="Content\ngDialog.css" />
     <Content Include="favicon.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -226,6 +230,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\angular\angular.js" />
     <Content Include="Scripts\app\app.js" />
+    <Content Include="Scripts\app\controllers\addAuthorModalCtrl.js" />
     <Content Include="Scripts\app\controllers\addBookCtrl.js" />
     <Content Include="Scripts\app\controllers\authorListCtrl.js" />
     <Content Include="Scripts\app\controllers\bookListCtrl.js" />
@@ -240,11 +245,16 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Scripts\app\modules\ng-file-upload-shim.js" />
     <Content Include="Scripts\app\modules\ng-file-upload.js" />
+    <Content Include="Scripts\app\modules\ngDialog.js" />
     <Content Include="Scripts\app\services\authorService.js" />
     <Content Include="Scripts\app\services\bookService.js" />
     <Content Include="Scripts\app\services\notificationService.js" />
     <Content Include="Scripts\bootstrap\bootstrap.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\underscore.js" />
+    <Content Include="templates\add-author-modal.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="templates\authors-list.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
