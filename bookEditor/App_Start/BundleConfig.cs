@@ -31,6 +31,7 @@ namespace bookEditor
                       "~/Scripts/app/services/bookService.js",
                       "~/Scripts/app/services/authorService.js",
                       "~/Scripts/app/services/notificationService.js",
+                      "~/Scripts/app/directives/serverSideValidationDirective.js",
                       "~/Scripts/app/directives/uniqueAuthorDirective.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(

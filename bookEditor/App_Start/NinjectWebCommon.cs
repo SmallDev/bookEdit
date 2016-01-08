@@ -68,6 +68,7 @@ namespace bookEditor.App_Start
             kernel.Bind<IBookService>().To<BookService>().InRequestScope();
             kernel.Bind<IAuthorService>().To<AuthorService>().InRequestScope();
             kernel.Bind<IPictureService>().To<PictureService>().InRequestScope();
+            kernel.Bind<IValidationService>().To<ValidationService>().InRequestScope();
         }        
     }
 }

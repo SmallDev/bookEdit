@@ -71,5 +71,19 @@
                 }
             }
         });
+
+        $scope.deleteAuthor = function (id) {
+            var author = null;
+            $.each($scope.book.authors, function (i, item) {
+                if (item.id == id) {
+                    author = item;
+                    return false;
+                };
+            })
+
+            if (author) {
+                $scope.book.authors.splice($scope.book.authors.indexOf(author), 1);
+            }
+        };
     }
 }]);

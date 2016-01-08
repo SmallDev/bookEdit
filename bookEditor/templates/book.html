@@ -36,10 +36,11 @@
 
                         <div class="input-group input-group-sm edit-book-info">
                             <span class="input-group-addon edit-book-info-header" id="sizing-addon2">ISBN</span>
-                            <input name="isbn" ng-model="book.isbn" type="text" class="form-control" placeholder="ISBN" aria-describedby="sizing-addon2" required>
+                            <input name="isbn" ng-model="book.isbn" server-side-validation="isbn" type="text" class="form-control" placeholder="ISBN" aria-describedby="sizing-addon2" required>
                         </div>
                         <div class="book-validation-block">
                             <span class="book-validation-message" ng-show="bookForm.isbn.$dirty && bookForm.isbn.$error.required">ISBN is required field</span>
+                            <span class="book-validation-message" ng-show="bookForm.isbn.$dirty && bookForm.isbn.$error.serverSideValidation">Wrong ISBN format</span>
                         </div>
 
                         <div class="input-group input-group-sm edit-book-info-sm">
@@ -76,6 +77,11 @@
                                     </span>
                                 </div>
                             </div>
+                        </div>
+
+                        <input style="display:none" name="authorsCount" type="number" min=1 ng-model="book.authors.length" />
+                        <div class="book-validation-block">
+                            <span class="book-validation-message" ng-show="bookForm.authorsCount.$error.min">Book should have at least one author.</span>
                         </div>
 
                         <input type="submit" class="btn btn-primary pull-right book-save-button" ng-disabled="bookForm.$invalid" value="Save" />
