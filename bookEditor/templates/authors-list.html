@@ -2,12 +2,12 @@
     <h1>Authors</h1>
 </div>
 
-<div ng-if="notification.showMessageFlag" ng-class="notification.messageType" class="alert" role="alert">
+<div id="notificationMessage" ng-if="notification.showMessageFlag" ng-class="notification.messageType" class="alert info-message-block" role="alert">
     <a href="#" class="alert-link">{{notification.infoMessage}}</a>
     <a ng-click="hideNotificationPanel()" class="btn btn-xs glyphicon glyphicon-remove pull-right"></a>
 </div>
 
-<div id="books-container" class="col-md-6">
+<div id="books-container" class="col-md-6" custom-scroll="275">
 
     <ul class="list-group">
         <li ng-repeat="author in data.authors" class="list-group-item">

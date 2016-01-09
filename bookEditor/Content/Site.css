@@ -227,3 +227,8 @@ div.ngdialog{
 {
     width: 95% !important;
 }
+
+.info-message-block{
+    padding: 9px !important;
+    margin-bottom: 12px !important;
+}   

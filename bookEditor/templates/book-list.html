@@ -2,7 +2,7 @@
     <h1>Available books</h1>
 </div>
 
-<div ng-if="notification.showMessageFlag" ng-class="notification.messageType" class="alert" role="alert">
+<div ng-if="notification.showMessageFlag" ng-class="notification.messageType" class="alert info-message-block" role="alert">
     <a href="#" class="alert-link">{{notification.infoMessage}}</a>
     <a ng-click="hideNotificationPanel()" class="btn btn-xs glyphicon glyphicon-remove pull-right"></a>
 </div>
@@ -15,7 +15,7 @@
     </div>
 </div>
 
-<div class="col-md-10">
+<div class="col-md-10" custom-scroll="310">
     <div id="books-container" class="col-md-12" ng-repeat="book in data.books | orderBy: orderCategory">
         <div class="panel panel-default book-panel">
             <div class="panel-heading clearfix">
@@ -28,8 +28,8 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col-md-3">
-                        <img width="140" height="140" ng-if="book.bookHasImage" ng-src="data:image/JPEG;base64,{{book.picture.img}}" class="img-rounded book-image">
-                        <img width="140" height="140" ng-if="!book.bookHasImage" src="/Content/img/no-img.jpg" class="img-rounded book-image">
+                        <img ng-if="book.bookHasImage" ng-src="data:image/JPEG;base64,{{book.picture.img}}" class="img-rounded book-image">
+                        <img ng-if="!book.bookHasImage" src="/Content/img/no-img.jpg" class="img-rounded book-image">
                     </div>
                     <div class="col-md-9">
                         <div class="row book-info-detail">
@@ -52,7 +52,7 @@
                         <div class="row">
                             <h4 class="book-info-header authors-header">Authors</h4>
                             <div class="short-autor-info-panel">
-                                <div class="short-author-info-inner-block" >
+                                <div class="short-author-info-inner-block">
                                     <span class="label label-default author-short-info" ng-repeat="author in book.authors">
                                         <span>{{author.lastName}}</span>
                                         <span>{{author.firstName}}</span>
@@ -65,13 +65,13 @@
                 </div>
             </div>
         </div>
-        <hr>   
     </div>
 </div>
 
-<div class="col-md-2">
-    <button ng-click="addBook()" type="button" class="btn btn-primary">Add Book</button>
-</div>
+
+        <div class="col-md-2">
+            <button ng-click="addBook()" type="button" class="btn btn-primary">Add Book</button>
+        </div>
 
 
 

@@ -224,7 +224,6 @@
     <Content Include="Content\img\no-img.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\.css" />
     <Content Include="Content\ngDialog-theme-default.css" />
     <Content Include="Content\ngDialog-theme-plain.css" />
     <Content Include="Content\ngDialog.css" />
@@ -242,6 +241,7 @@
     <Content Include="Scripts\app\controllers\bookListCtrl.js" />
     <Content Include="Scripts\app\controllers\editBookCtrl.js" />
     <Content Include="Scripts\app\controllers\navigationCtrl.js" />
+    <Content Include="Scripts\app\directives\customScrollDirective.js" />
     <Content Include="Scripts\app\directives\serverSideValidationDirective.js" />
     <Content Include="Scripts\app\directives\uniqueAuthorDirective.js" />
     <Content Include="Scripts\app\modules\angular-cookies.js" />

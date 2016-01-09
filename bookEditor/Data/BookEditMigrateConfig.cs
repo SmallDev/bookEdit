@@ -22,48 +22,53 @@ namespace bookEditor.Data
                 {
                     new Book
                     {
-                        Title = "Story Book",
-                        Publisher = "O'Relly",
-                        ISBN = "2-266-11156",
-                        PublishYear = 1984,
-                        NumberOfPages = 1000,
+                        Title = "The Fellowship Of The Ring",
+                        Publisher = "Tolkien Official Publishing",
+                        ISBN = "978-0-00-720354-3",
+                        PublishYear = 2005,
+                        NumberOfPages = 432,
                         Authors = new Author []
                         {
                             new Author
                             {
-                                FirstName = "Tim",
-                                LastName = "Smeet",
-                                PatronymicName = "TJ"
-                            },
-                            new Author
-                            {
-                                FirstName = "Mike",
-                                LastName = "Benington",
-                                PatronymicName = "LP"
-                            },
+                                FirstName = "John",
+                                LastName = "Tolkien",
+                                PatronymicName = "R.R."
+                            }
                         },
                     },
                     new Book
                     {
-                        Title = "Lord Of The Time",
-                        Publisher = "O'Relly",
-                        ISBN = "2-266-17156",
-                        PublishYear = 1993,
-                        NumberOfPages = 100,
+                        Title = "The Martian",
+                        Publisher = "Random House",
+                        ISBN = "978-0-8041-3902-1",
+                        PublishYear = 2014,
+                        NumberOfPages = 384,
                         Authors = new Author []
                         {
                             new Author
                             {
-                                FirstName = "Tom",
-                                LastName = "Davidson",
-                                PatronymicName = "Jonior"
-                            },
+                                FirstName = "Andy",
+                                LastName = "Weir",
+                                PatronymicName = "Weir"
+                            }
+                        }
+                    },
+                    new Book
+                    {
+                        Title = "A Storm of Swords",
+                        Publisher = "Random House",
+                        ISBN = "978-0-00-711955-4",
+                        PublishYear = 2011,
+                        NumberOfPages = 356,
+                        Authors = new Author []
+                        {
                             new Author
                             {
-                                FirstName = "Fred",
-                                LastName = "Davidson",
-                                PatronymicName = "TR"
-                            },
+                                FirstName = "Geaorge",
+                                LastName = "Martin",
+                                PatronymicName = "R.R."
+                            }
                         }
                     }
                 };

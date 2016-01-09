@@ -12,8 +12,8 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-md-3">
-                    <img width="140" height="140" ng-if="bookHasImage" ng-src="data:image/JPEG;base64,{{book.picture.img}}" class="img-rounded book-image">
-                    <img width="140" height="140" ng-if="!bookHasImage" src="/Content/img/no-img.jpg" class="img-rounded book-image">
+                    <img ng-if="bookHasImage" ng-src="data:image/JPEG;base64,{{book.picture.img}}" class="img-rounded book-image">
+                    <img ng-if="!bookHasImage" src="/Content/img/no-img.jpg" class="img-rounded book-image">
                     <button type="file" ngf-select="uploadFiles($file, $invalidFiles)" accept="image/*"  ngf-max-size="1MB" ngf-pattern="'.jpeg,.jpg'" class="btn btn-default image-upload-button">Upload Image</button>
                 </div>
                 <form name="bookForm" ng-submit="save()">
