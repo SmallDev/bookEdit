@@ -4,6 +4,12 @@
     var orderByTitle = "title";
     var orderByPublishYear = "publishYear";
 
+    function setCookie(name, value) {
+        var expireDate = new Date();
+        expireDate.setDate(expireDate.getDate() + 10);
+        $cookies.put(name, value, { 'expires': expireDate });
+    }
+
     $scope.notification = {};
     notificationService.init($scope.notification);
 
@@ -14,14 +20,14 @@
     $scope.orderByTitle = function () {
         $scope.titleSortButton = "btn-primary";
         $scope.yearSortButton = "btn-default";
-        $cookies.put('bookEditAppSort', orderByTitle);
+        setCookie('bookEditAppSort', orderByTitle);
         $scope.orderCategory = orderByTitle;
     };
 
     $scope.orderByPublishYear = function () {
         $scope.titleSortButton = "btn-default";
         $scope.yearSortButton = "btn-primary";
-        $cookies.put('bookEditAppSort', orderByPublishYear);
+        setCookie('bookEditAppSort', orderByPublishYear);
         $scope.orderCategory = orderByPublishYear;
     };
 
