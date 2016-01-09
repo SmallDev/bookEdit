@@ -1,5 +1,6 @@
 ﻿angular.module('bookEditApp').controller('bookListCtrl', ['$scope', 'bookService', '$location', 'notificationService', '$cookies', function ($scope, bookService, $location, notificationService, $cookies) {
     $scope.data = bookService;
+    $scope.booksListLoaded = false;
 
     var orderByTitle = "title";
     var orderByPublishYear = "publishYear";
@@ -71,10 +72,11 @@
 
     bookService.getBooks().then(
         function () {
-            //success
+            $scope.booksListLoaded = true;
         },
         function () {
-            //error
+            notificationService.showErrorMessage("Can't get books list. Pleasy try later.", $scope.notification);
+            $scope.booksListLoaded = true;
         })
         .then(function () {
             //anyway

@@ -2,6 +2,8 @@
 
     $scope.data = authorService;
 
+    $scope.authorListLoaded = false;
+
     $scope.notification = {};
     notificationService.init($scope.notification);
 
@@ -34,9 +36,10 @@
 
     authorService.getAuthors().then(
         function () {
-            //success
+            $scope.authorListLoaded = true;
         },
         function () {
+            $scope.authorListLoaded = true;
             notificationService.setErrorInitMessage("Can't get authors list.");
             $location.url("/books");
         })
