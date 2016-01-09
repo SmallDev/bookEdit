@@ -233,6 +233,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\angular\angular-mocks.js" />
     <Content Include="Scripts\angular\angular.js" />
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\controllers\addAuthorModalCtrl.js" />
