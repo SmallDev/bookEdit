@@ -1,4 +1,4 @@
-﻿angular.module('bookEditApp').directive('serverSideValidation', function ($http) {
+﻿angular.module('bookEditApp').directive('serverSideValidation', ['$http', function ($http) {
     var toId;
     var _isbnValidationType = 0;
 
@@ -37,4 +37,4 @@
             })
         }
     }
-});
+}]);
