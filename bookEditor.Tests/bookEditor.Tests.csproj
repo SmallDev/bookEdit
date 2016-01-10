@@ -89,7 +89,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
-    <Content Include="jsAppTests\authorsService.tests.js" />
+    <Content Include="jsAppTests\authorService.tests.js" />
+    <Content Include="jsAppTests\bookService.tests.js" />
     <Content Include="Scripts\jasmine.js" />
   </ItemGroup>
   <ItemGroup>
