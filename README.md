@@ -23,6 +23,8 @@ If you are using another version of MS SQL, then you should specify your connect
 * Specify **Initial Catalog**,  so EF can create app database in it.
 * If you don’t use **Integrated Security**,  then you should provide proper credentials with all necessary permissions.
 
+(*I have tested this app only with MS SQL Server*)
+
 ## js tests
 
 This application has some client code unit tests. They are written by  **jasmine**,  so you need [Chutzpah]( https://github.com/mmanela/chutzpah) test runner to execute them in Visual Studio. You can setup it as  Visual Studio extension.
