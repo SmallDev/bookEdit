@@ -70,6 +70,14 @@
         $location.url('/addBook')
     };
 
+    $scope.collapseBook = function (book) {
+        book.collapsed = true;
+    };
+
+    $scope.extendBook = function (book) {
+        book.collapsed = false;
+    };
+
     bookService.getBooks().then(
         function () {
             $scope.booksListLoaded = true;

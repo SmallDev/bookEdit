@@ -8,10 +8,13 @@
 </div>
 
 <div class="col-md-10 sort-block">
-    <span class="sort-lable">Order By</span>
-    <div class="btn-group" role="group">
-        <button ng-click="orderByTitle()" type="button" ng-class="titleSortButton" class="btn">Title</button>
-        <button ng-click="orderByPublishYear()" type="button" ng-class="yearSortButton" class="btn">Year</button>
+    <div class="dropdown">
+        <a class="btn btn-default dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" href="#">Book Categories</a>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+            <li><a href="#">Advature</a></li>
+            <li><a href="#">Politic</a></li>
+            <li><a href="#">Something else here</a></li>
+        </ul>
     </div>
 </div>
 
@@ -19,54 +22,55 @@
     <h2>No books available</h2>
 </div>
 
-<div ng-show="!booksListLoaded"  class="progress book-list-progress col-md-10">
-    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"/>
+<div ng-show="!booksListLoaded" class="progress book-list-progress col-md-10">
+    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%" />
 </div>
 
-<div ng-show="booksListLoaded && (data.books.length > 0)"  class="col-md-10" custom-scroll="310">
-        <div id="books-container" class="col-md-12" ng-repeat="book in data.books | orderBy: orderCategory">
-            <div class="panel panel-default book-panel">
-                <div class="panel-heading clearfix">
-                    <h2 class="panel-title pull-left book-header book-panel-title">{{book.title}}</h2>
-                    <div class="btn-group pull-right">
-                        <a ng-click="$parent.editBook(book.id)" class="btn btn-default btn-sm glyphicon glyphicon glyphicon-pencil"></a>
-                        <a ng-click="$parent.deleteBook(book.id)" class="btn btn-default btn-sm glyphicon glyphicon-remove"></a>
-                    </div>
+<div ng-show="booksListLoaded && (data.books.length > 0)" class="col-md-10" custom-scroll="310">
+    <div id="books-container" class="col-md-12" ng-repeat="book in data.books | orderBy: orderCategory">
+        
+        <div ng-if="!book.collapsed" class="panel panel-default book-panel">
+            <div class="panel-heading clearfix">
+                <h2 class="panel-title pull-left book-header book-panel-title">{{book.title}}</h2>
+                <div class="btn-group pull-right">
+                    <a ng-click="$parent.collapseBook(book)" class="btn btn-default btn-sm glyphicon glyphicon glyphicon-resize-small"></a>
+                    <a ng-click="$parent.editBook(book.id)" class="btn btn-default btn-sm glyphicon glyphicon glyphicon-pencil"></a>
+                    <a ng-click="$parent.deleteBook(book.id)" class="btn btn-default btn-sm glyphicon glyphicon-remove"></a>
                 </div>
-                <div class="panel-body">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <img ng-if="book.bookHasImage" ng-src="data:image/JPEG;base64,{{book.picture.img}}" class="img-rounded book-image">
-                            <img ng-if="!book.bookHasImage" src="/Content/img/no-img.jpg" class="img-rounded book-image">
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img ng-if="book.bookHasImage" ng-src="data:image/JPEG;base64,{{book.picture.img}}" class="img-rounded book-image">
+                        <img ng-if="!book.bookHasImage" src="/Content/img/no-img.jpg" class="img-rounded book-image">
+                    </div>
+                    <div class="col-md-9">
+                        <div class="row book-info-detail">
+                            <h4 class="book-info-header">Publisher:</h4>
+                            <span class="book-info">{{book.publisher}}</span>
                         </div>
-                        <div class="col-md-9">
-                            <div class="row book-info-detail">
-                                <h4 class="book-info-header">Publisher:</h4>
-                                <span class="book-info">{{book.publisher}}</span>
-                            </div>
-                            <div class="row book-info-detail">
-                                <h4 class="book-info-header">ISBN:</h4>
-                                <span class="book-info">{{book.isbn}}</span>
-                            </div>
-                            <div class="row book-info-detail">
-                                <h4 class="book-info-header">Number of pages:</h4>
-                                <span class="book-info">{{book.numberOfPages}}</span>
-                            </div>
-                            <div class="row book-info-detail">
-                                <h4 class="book-info-header">Publish Year:</h4>
-                                <span class="book-info">{{book.publishYear}}</span>
-                            </div>
+                        <div class="row book-info-detail">
+                            <h4 class="book-info-header">ISBN:</h4>
+                            <span class="book-info">{{book.isbn}}</span>
+                        </div>
+                        <div class="row book-info-detail">
+                            <h4 class="book-info-header">Number of pages:</h4>
+                            <span class="book-info">{{book.numberOfPages}}</span>
+                        </div>
+                        <div class="row book-info-detail">
+                            <h4 class="book-info-header">Publish Year:</h4>
+                            <span class="book-info">{{book.publishYear}}</span>
+                        </div>
 
-                            <div class="row">
-                                <h4 class="book-info-header authors-header">Authors</h4>
-                                <div class="short-autor-info-panel">
-                                    <div class="short-author-info-inner-block">
-                                        <span class="label label-default author-short-info" ng-repeat="author in book.authors">
-                                            <span>{{author.lastName}}</span>
-                                            <span>{{author.firstName}}</span>
-                                            <span>{{author.patronymicName}}</span>
-                                        </span>
-                                    </div>
+                        <div class="row">
+                            <h4 class="book-info-header authors-header">Authors</h4>
+                            <div class="short-autor-info-panel">
+                                <div class="short-author-info-inner-block">
+                                    <span class="label label-default author-short-info" ng-repeat="author in book.authors">
+                                        <span>{{author.lastName}}</span>
+                                        <span>{{author.firstName}}</span>
+                                        <span>{{author.patronymicName}}</span>
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -74,12 +78,44 @@
                 </div>
             </div>
         </div>
+
+        <div ng-if="book.collapsed"  class="panel panel-default book-panel collapsed-book-item">
+            <div class="panel-body collapsed-book-panel">
+                <div class="btn-group pull-right">
+                    <a ng-click="$parent.extendBook(book)" class="btn btn-default btn-sm glyphicon glyphicon glyphicon glyphicon-resize-full"></a>
+                    <a ng-click="$parent.editBook(book.id)" class="btn btn-default btn-sm glyphicon glyphicon glyphicon-pencil"></a>
+                    <a ng-click="$parent.deleteBook(book.id)" class="btn btn-default btn-sm glyphicon glyphicon-remove"></a>
+                </div>
+                <div class="col-md-1">
+                    <img ng-if="book.bookHasImage" ng-src="data:image/JPEG;base64,{{book.picture.img}}" class="img-rounded collapsed-book-image">
+                    <img ng-if="!book.bookHasImage" src="/Content/img/no-img.jpg" class="img-rounded collapsed-book-image">
+                </div>
+                <div class="col-md-8">
+                    <div class="row collapsed-book-title">{{book.title}}</div>
+                    <div class="row collapsed-book-authors">Семенов Сергей Иванович, Петров Иван Анатольвич, Гренкин Семен Якволевич, Гречев Тотал Басковитович</div>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
 
 
 <div class="col-md-2">
     <button ng-click="addBook()" type="button" class="btn btn-primary">Add Book</button>
 </div>
+
+<script>
+      $(document).ready(function() {
+          $("a.dropdown-toggle").click(function(ev) {
+              $("a.dropdown-toggle").dropdown("toggle");
+              return false;
+          });
+          $("ul.dropdown-menu a").click(function(ev) {
+              $("a.dropdown-toggle").dropdown("toggle");
+              return false;
+          });
+      });
+</script>
 
 
 

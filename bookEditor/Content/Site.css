@@ -32,7 +32,7 @@
 
 .sort-block 
 {
-   padding-left: 30px;
+   padding-left: 35px;
    margin-bottom: 20px;
 }
 
@@ -244,3 +244,30 @@ div.ngdialog{
     padding: 0;
     margin-top:9px;
 } 
+
+.collapsed-book-item{
+    background-color: #f5f5f5;
+}
+
+.collapsed-book-image{
+    width: 60px; 
+    height: 60px;
+}
+
+.book-image-column{
+    padding-left: 0 !important;
+}
+
+.collapsed-book-panel{
+    padding: 10px !important;
+}
+
+.collapsed-book-title {
+    margin-left: 20px; 
+    font-size: 13pt;
+    font-weight: 600;
+}
+
+.collapsed-book-authors {
+    margin: 5px 0 0 20px;   
+}

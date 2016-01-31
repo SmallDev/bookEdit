@@ -1,4 +1,5 @@
 ﻿using bookEditor.Models;
+using bookEditor.Models.ClientModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace bookEditor.Services.Interfaces
 {
     public interface IBookService
     {
-        IEnumerable<Book> GetBooks();
+        IEnumerable<ClientBook> GetBooks();
 
         void UpdateBook(Book book);
 

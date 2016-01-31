@@ -5,6 +5,8 @@ using System.Linq;
 using System.Web;
 using bookEditor.Models;
 using bookEditor.Data;
+using bookEditor.Helpers;
+using bookEditor.Models.ClientModels;
 
 namespace bookEditor.Services
 {
@@ -21,9 +23,10 @@ namespace bookEditor.Services
             _bookEditRepository = bookEditRepository;
         }
 
-        public IEnumerable<Book> GetBooks()
+        public IEnumerable<ClientBook> GetBooks()
         {
-            return _bookEditRepository.GetAllBooks();
+            var books = _bookEditRepository.GetAllBooks().ToArray();
+            return books.Select(_ => _.ToClientBook());
         }
 
         public void UpdateBook(Book book)

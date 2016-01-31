@@ -1,4 +1,5 @@
 ﻿using bookEditor.Models;
+using bookEditor.Models.ClientModels;
 using bookEditor.Services.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,7 @@ namespace bookEditor.Controllers
             _bookService = bookService;
         }
 
-        public IEnumerable<Book> GetBooks()
+        public IEnumerable<ClientBook> GetBooks()
         {
             return _bookService.GetBooks();
         }
