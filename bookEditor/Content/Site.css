@@ -32,7 +32,7 @@
 
 .sort-block 
 {
-   padding-left: 35px;
+   padding-left: 45px;
    margin-bottom: 20px;
 }
 
@@ -270,4 +270,8 @@ div.ngdialog{
 
 .collapsed-book-authors {
     margin: 5px 0 0 20px;   
+}
+
+.theme-item {
+    cursor:pointer;
 }

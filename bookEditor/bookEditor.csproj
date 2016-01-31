@@ -244,6 +244,7 @@
     <Content Include="Scripts\app\controllers\bookListCtrl.js" />
     <Content Include="Scripts\app\controllers\editBookCtrl.js" />
     <Content Include="Scripts\app\controllers\navigationCtrl.js" />
+    <Content Include="Scripts\app\directives\customDropdownDirective.js" />
     <Content Include="Scripts\app\directives\customScrollDirective.js" />
     <Content Include="Scripts\app\directives\serverSideValidationDirective.js" />
     <Content Include="Scripts\app\directives\uniqueAuthorDirective.js" />

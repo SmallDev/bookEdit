@@ -8,12 +8,12 @@
 </div>
 
 <div class="col-md-10 sort-block">
-    <div class="dropdown">
-        <a class="btn btn-default dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" href="#">Book Categories</a>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-            <li><a href="#">Advature</a></li>
-            <li><a href="#">Politic</a></li>
-            <li><a href="#">Something else here</a></li>
+    <div class="dropdown" custom-dropdown custom-dropdown-button="themes-dropdown" dropdown-theme-item="theme-item" dropdown-action="selectCategory">
+        <a class="btn btn-default" id="themes-dropdown">Book Categories</a>
+        <ul class="dropdown-menu" role="menu">
+            <li><a item-category="adventre" class="theme-item" >Advature</a></li>
+            <li><a item-category="Politic" class="theme-item" >Politic</a></li>
+            <li><a item-category="Something else here" class="theme-item" >Something else here</a></li>
         </ul>
     </div>
 </div>
@@ -103,19 +103,6 @@
 <div class="col-md-2">
     <button ng-click="addBook()" type="button" class="btn btn-primary">Add Book</button>
 </div>
-
-<script>
-      $(document).ready(function() {
-          $("a.dropdown-toggle").click(function(ev) {
-              $("a.dropdown-toggle").dropdown("toggle");
-              return false;
-          });
-          $("ul.dropdown-menu a").click(function(ev) {
-              $("a.dropdown-toggle").dropdown("toggle");
-              return false;
-          });
-      });
-</script>
 
 
 

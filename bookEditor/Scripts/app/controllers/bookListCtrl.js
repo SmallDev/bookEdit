@@ -78,6 +78,10 @@
         book.collapsed = false;
     };
 
+    $scope.selectCategory = function (selectedCategory) {
+        console.log("Hello from: " + selectedCategory);
+    };
+
     bookService.getBooks().then(
         function () {
             $scope.booksListLoaded = true;
